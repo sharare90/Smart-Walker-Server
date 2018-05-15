@@ -17,6 +17,7 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
+    path('', views.index, name=''),
     path('add_line', views.add_line, name='add_line'),
     path('create_file', views.create_file, name='create_file'),
 ]
