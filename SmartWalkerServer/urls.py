@@ -20,4 +20,6 @@ urlpatterns = [
     path('', views.index, name=''),
     path('add_line', views.add_line, name='add_line'),
     path('create_file', views.create_file, name='create_file'),
+    path('add_image', views.add_image, name='add_image'),
+    path('create_image_directory', views.create_image_directory, name='create_image_directory')
 ]
