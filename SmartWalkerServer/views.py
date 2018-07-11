@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 
 global file_name
+file_name = ""
 
 
 @csrf_exempt
@@ -15,7 +16,8 @@ def index(request):
 @csrf_exempt
 def create_file(request):
     global file_name
-    file_name = str(datetime.now())
+    if file_name == "":
+        file_name = str(datetime.now())
     for char in (":", ".", " "):
         file_name = file_name.replace(char, "-")
     file_name += '.txt'
@@ -42,6 +44,8 @@ def add_line(request):
 @csrf_exempt
 def create_image_directory(request):
     global file_name
+    if file_name == "":
+        file_name = str(datetime.now())
     image_directory_name = file_name
     for char in (":", ".", " "):
         image_directory_name = image_directory_name.replace(char, "-")
