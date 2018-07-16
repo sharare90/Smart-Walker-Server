@@ -58,8 +58,9 @@ def create_image_directory(request):
 def add_image(request):
     image = request.FILES['file']
     image_directory_name = request.POST['directory_name']
-    image_file_name = image.name
-    with open('./images_logs/' + image_directory_name + '/' + image_file_name, 'wb+') as f:
+    base_address = './images_logs/' + image_directory_name + '/'
+    image_file_name = str(len(os.listdir(base_address)) + 1)
+    with open(base_address + image_file_name, 'wb+') as f:
         for chunk in image.chunks():
             f.write(chunk)
 
